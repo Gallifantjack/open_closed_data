@@ -8,9 +8,12 @@ Pubmed is searched using Bio Entrez API for all papers related to AI.
 
 Methods of getting ICU subset
 
-1. Re- search PubMed search strategy:
+1. Re- search PubMed search strategy (from [Van De Sande et al., 2021](https://doi.org/10.1007/s00134-021-06446-7)):
 
-- (intensive care unit(tiab) OR ICU(tiab) OR critically ill(tiab)).
+- Pubmed
+  - ('intensive care'/exp OR 'intensive care unit'/exp OR 'critically ill patient'/de OR (ICU OR IC OR ((intensive OR critical) NEAR/3 (care OR therapy OR unit* OR patient* OR department\*))):ab,ti,kw)
+- Ovid/medline
+  - (exp "Intensive Care Units"/ OR exp "Critical Care"/ OR (ICU OR IC OR ((intensive OR critical) ADJ3 (care OR therapy OR unit* OR patient* OR department\*))).ab,ti,kf.)
 
 2. Use JZ NLP to label papers as ICU related
 
