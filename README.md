@@ -1,28 +1,20 @@
-# Open vs Closed datasets extraction pipeline
+# Author information of ICU papers and Biobank papers.
 
-This repository contains the code for the extraction pipeline of the Open vs Closed datasets.
+This repository contains the code to scrape all ICU related papers and UK Biobank on pubmed between 2010-2022.
 
-Data is extracted from Pubmed using a pipeline based off [here](https://github.com/joxang/health_ai_end_to_end):
+## Strategy
+Data is extracted from Pubmed using a pipeline based off [here](https://github.com/joxang/health_ai_end_to_end)
 
-Pubmed is searched using Bio Entrez API for all papers related to AI.
+Pubmed (MEDLINE) is searched using Bio Entrez API for all papers related to ICU, with loop to get around 10,000 retmax.
 
-Methods of getting ICU subset
+Enter own email address and API key to run the code. This can be found by logging into NCBI and going to https://www.ncbi.nlm.nih.gov/account/settings/
 
-1. Re- search PubMed search strategy (from [Van De Sande et al., 2021](https://doi.org/10.1007/s00134-021-06446-7)):
+## Search terms
 
-- Pubmed
-  - ('intensive care'/exp OR 'intensive care unit'/exp OR 'critically ill patient'/de OR (ICU OR IC OR ((intensive OR critical) NEAR/3 (care OR therapy OR unit* OR patient* OR department\*))):ab,ti,kw)
-- Ovid/medline
-  - (exp "Intensive Care Units"/ OR exp "Critical Care"/ OR (ICU OR IC OR ((intensive OR critical) ADJ3 (care OR therapy OR unit* OR patient* OR department\*))).ab,ti,kf.)
+- ICU PubMed search strategy is based on [Van De Sande et al., 2021](https://doi.org/10.1007/s00134-021-06446-7), and has been vetted by ICU physicians LC + JG.
+- UK Biobank PubMed search strategy combines all papers related to ("UK Biobank") OR ("United Kingdom Biobank")
 
-2. Use JZ NLP to label papers as ICU related
-
-- see 4_char
-
-3. Use dictionary of terms
-
-- see 56 of 4b
-
+## Metadata
 The following metadata is extracted:
 
 - title
@@ -33,13 +25,8 @@ The following metadata is extracted:
 - pmid
 - mesh terms
 
-All papers related to AI are included in the dataset.
+## Data
+The data is stored in the `data` folder. The data is split into two files:
 
-A subgroup label of critical care is also included.
-
-# Todo:
-
-## Demo
-
-- Run pipeline on all papers since 2020
-  - including all AI related papers
+- `pubmed_icu_papers.csv` - all papers related to ICU
+- `pubmed_biobank_papers.csv` - all papers related to UK Biobank
