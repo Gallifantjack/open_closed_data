@@ -26,7 +26,7 @@ The following metadata is extracted:
 - pmid
 - mesh terms
 
-## Data
+## Data
 
 The data is stored in the `data` folder. The data is split into two files:
 
