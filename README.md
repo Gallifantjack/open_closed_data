@@ -14,7 +14,8 @@ Enter own email address and API key to run the code. This can be found by loggin
 - ICU PubMed search strategy is based on [Van De Sande et al., 2021](https://doi.org/10.1007/s00134-021-06446-7), and has been vetted by ICU physicians LC + JG.
 - UK Biobank PubMed search strategy combines all papers related to ("UK Biobank") OR ("United Kingdom Biobank")
 
-## Metadata
+## Metadata
+
 The following metadata is extracted:
 
 - title
@@ -26,6 +27,7 @@ The following metadata is extracted:
 - mesh terms
 
 ## Data
+
 The data is stored in the `data` folder. The data is split into two files:
 
 - `pubmed_icu_papers.csv` - all papers related to ICU

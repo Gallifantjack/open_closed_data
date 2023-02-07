@@ -225,4 +225,4 @@ article_df, search_time, most_recent_article_date = retrieve_articles(
     search_term=search_term, mindate=2010, maxdate=2022, retmax=200000, chunk_size=200
 )
 
-article_df.to_csv("data/pubmed_biobank_articles.csv", index=False)
+article_df.to_csv("pubmed_biobank_articles.csv", index=False)
